@@ -2,7 +2,7 @@
 #include <QMainWindow>
 #include <iostream>
 
-Renderer::Renderer(QMainWindow *parent)
+Renderer::Renderer(MainWindow *parent)
 {
     this->parent = parent;
 }
@@ -62,11 +62,18 @@ void Renderer::initializeGL(){
     glEnable(GL_POINT_SMOOTH);
 }
 
+void Renderer::resizeGL(int w, int h){
+    glViewport(0, 0, w, h);
+    std::cout << w << " " << h << std::endl;
+}
+
 void Renderer::paintGL(){
     initializeOpenGLFunctions();
     glClearColor(1, 1, 1, 0);
     glClear(GL_COLOR_BUFFER_BIT);
-
+    glBegin(GL_POINTS);
+    glVertex3f(0.2, 0.2, 0.0);
+    glEnd();
     const float vertices[] = {
         0.0f, 0.0f, 0.0f,
         -1.0f, 1.0f, 0.0f,
@@ -83,12 +90,11 @@ void Renderer::paintGL(){
     glUseProgram(shaderProgram);
     glBindVertexArray(VAO);
     glDrawArrays(GL_POINTS, 0, sizeof(vertices)/sizeof(float));
-
+    /*
     GLint dims[2];
     glGetIntegerv(GL_MAX_VIEWPORT_DIMS, dims);
     std::cout << "dimenson x:" << dims[0] << " dimenson y:" << dims[1] << std::endl;
-
+    */
     this->update();
+    this->resizeGL(this->width(), this->height());
 }
-
-

@@ -1,5 +1,5 @@
 #pragma once
-#include <QMainWindow>
+#include <QtWidgets>
 #include <QApplication>
 #include <QObject>
 
@@ -12,4 +12,5 @@ public:
     MainWindow(QApplication *main_event);
     ~MainWindow();
     void save_test();
+    QDockWidget dock_renderer;
 };

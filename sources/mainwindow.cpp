@@ -24,10 +24,11 @@ MainWindow::MainWindow(QApplication *main_event)
 
     Renderer *renderer = new Renderer(this);
     renderer->setFocusPolicy(Qt::FocusPolicy::ClickFocus);
-    QDockWidget *dock_renderer = new QDockWidget("Renderer");
-    dock_renderer->setWidget(renderer);
-    dock_renderer->setFeatures(QDockWidget::DockWidgetMovable);
-    this->addDockWidget(Qt::LeftDockWidgetArea, dock_renderer);
+
+    this->dock_renderer.setWindowTitle("Renderer");
+    this->dock_renderer.setWidget(renderer);
+    this->dock_renderer.setFeatures(QDockWidget::DockWidgetMovable);
+    this->addDockWidget(Qt::LeftDockWidgetArea, &this->dock_renderer);
 
     QGraphicsScene scene;
     QGraphicsView graphics_view(&scene);
