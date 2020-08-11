@@ -5,12 +5,12 @@
 
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
-    QApplication *main_event;
+	Q_OBJECT
+
+private:
+	QApplication* main_event;
 
 public:
-    MainWindow(QApplication *main_event);
-    ~MainWindow();
-    void save_test();
-    QDockWidget dock_renderer;
+	MainWindow(QApplication* main_event);
+	~MainWindow();
 };

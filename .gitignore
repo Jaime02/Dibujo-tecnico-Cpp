@@ -1,1 +1,10 @@
 .user
+.vs
+.vcxproj
+.filters
+.user
+.qmake
+.stash
+debug/
+x64/
+release/
