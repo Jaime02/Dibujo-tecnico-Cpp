@@ -5,10 +5,9 @@
 
 class Diedric : public QWidget
 {
-    Q_OBJECT
-    QMainWindow *parent;
+	Q_OBJECT
+		QMainWindow* parent;
 
 public:
-    Diedric(QMainWindow *parent);
+	Diedric(QMainWindow* parent);
 };
-
