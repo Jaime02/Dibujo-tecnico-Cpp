@@ -17,7 +17,7 @@ public:
 	void paintGL() override;
 	void initializeGL() override;
 
-	void drawPoints(const std::vector<double> points, int vec_len);
+	void drawPoints(const std::vector<float> points, int vec_len, const float* data);
 
 private:
 	unsigned int VAO;
