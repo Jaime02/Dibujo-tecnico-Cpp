@@ -122,7 +122,6 @@ void Renderer::drawPoints(const std::vector<float> points, int vec_len, const fl
 void Renderer::paintGL() {
 	glClearColor(1, 1, 1, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
-	qDebug() << "Size" << sizeof(points);
 	Renderer::drawPoints(points, points.size(), points.data());
 	update();
 }
